@@ -1,0 +1,140 @@
+\documentclass[10pt]{beamer}%
+\usetheme[%
+%width=2cm, %define el ancho de la barra de navegación
+%left, %barra navegacion a la izquierda
+%right %barra navegacion a la derecha
+]{Aalborg}%
+%========================================%
+%Para cambiar algunos colores en el tema %
+%pueden descomentar y compilar para ver  %
+%los cambios, ojo que lo pueden persona- %
+%lizar modificando el porcentaje de color%
+%\setbeamercolor{Aalborg}{fg=red!20,bg=red}%
+%\setbeamercolor{sidebar}{bg=red!20}%
+%\setbeamercolor{structure}{fg=red}%
+%\setbeamercolor{frametitle}{fg=blue}%
+%\setbeamercolor{normal text}{bg=gray!10}%
+%========================================%
+\graphicspath{{Images/}}%
+\usepackage{geometry}%
+\geometry{%
+  paperwidth=1.33\paperwidth,%
+  paperheight=\the\paperheight,%
+  vmargin=0cm,%
+}
+\usepackage[utf8]{inputenc}%
+\usepackage[spanish]{babel}%
+\usepackage[T1]{fontenc}%
+\usepackage{helvet}%
+\newcommand{\chref}[2]{%
+  \href{#1}{{\usebeamercolor[bg]{Aalborg}#2}}%
+}%
+\AtBeginSection[]{
+	\begin{frame}
+	\vfill
+	\centering
+	\begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
+		\usebeamerfont{title}\insertsectionhead\par%	
+	\end{beamercolorbox}		
+	\end{frame}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%==========================%
+%Titulo de la presentacion %
+\title[\textbf{Titulo corto}]%
+{{{\textcolor{white} \Huge Titulo largo de la presentación}}}%
+%==========================%
+\subtitle{Charlas del Grupo GIS2R}  % could also be a conference name
+\author[Luis Robles]%nombre corto (al pie del logo)
+       {Luis Robles}%nombre largo (opcional, al inicio en el titulo)
+%=================================%
+%En el caso de ser varios autores %
+%  \author[Luis Robles] % optional, use only with lots of authors
+% {
+% Luis Alberto Robles
+% }
+%=================================%
+%==========================================================================%
+%Ingresa solo el nombre de la institucion a la que pertenece (affiliation) %
+% \institute[LabTel \\ FCF - UNMSM]{
+% Laboratorio de Teledetección - LabTel \\
+% Universidad Nacional Mayor de San Marcos}
+%==========================================================================%
+%=========================================================================%
+%Ingresar nombre y logo de la institucion a la que pertenece (affiliation)%
+\institute[
+{\includegraphics[scale=0.05]{Images/logo/unmsm}}\\ %logo insti
+LabTel \\ %laboratorio
+FCF - UNMSM %facultad y universidad
+]%
+{%
+Laboratorio de Teledetección - LabTel\\
+Facultad de Ciencias Físicas - UNMSM%
+}%
+%=========================================================================%
+%======%
+%Fecha %
+\date{\today}
+%======%
+%=================================%
+%Logo de caratula inicio de press %
+\pgfdeclareimage[height=2.5cm]{titlepagelogo}{Images/logo/gis2r}
+\titlegraphic{%
+  \pgfuseimage{titlepagelogo}
+}
+%=================================%
+%=================================%
+%Logo de esquina superior derecha %
+\pgfdeclareimage[height=1.6cm]{mainlogo}{Images/logo/gis2r}
+\logo{\pgfuseimage{mainlogo}}
+%=================================%
+
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% the titlepage
+{\aauwavesbg
+\begin{frame}[plain,noframenumbering] % the plain option removes the sidebar and header from the title page
+  \titlepage
+\end{frame}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TOC
+\begin{frame}{Contenido}{}
+\begin{footnotesize}
+	\tableofcontents	
+\end{footnotesize}
+\end{frame}
+%<================<*>================>%
+%<================<*>================>%
+%\part{Introducción}
+%\begin{frame}{}
+% \partpage
+%\end{frame}
+%<================<*>================>%
+%<================<*>================>%
+\section{Introducción}
+\begin{frame}{Problema Actual}
+
+\end{frame}
+%<================<*>================>%
+%<================<*>================>%
+\section{Teoría} % (fold)
+\begin{frame}{Parte teórica}
+	
+\end{frame}
+%<================<*>================>%
+%<================<*>================>%
+\section{Ejemplos} % (fold)
+\begin{frame}{Parte práctica}
+	
+\end{frame}
+
+%<================<*>================>%
+%<================<*>================>%
+{\aauwavesbg%
+\begin{frame}[plain,noframenumbering]%
+  \finalpage{Gracias por su atención\\
+  ¿preguntas?}
+\end{frame}}
+\end{document}
