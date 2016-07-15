@@ -1,0 +1,244 @@
+%\documentclass[compress]{beamer}
+\documentclass[xcolor=dvipsnames]{beamer}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% para escribir en español
+    \usepackage[spanish]{babel}
+    \usepackage[ansinew]{inputenc}
+    \usepackage{ragged2e}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% características de Beamer
+    \usetheme{Warsaw} % Beamer Theme
+    \useoutertheme[subsection=false]{smoothbars} % Beamer Outer Theme
+    \useinnertheme{rectangles}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% definimos colores
+    \definecolor{micolor}{RGB}{98,137,39}
+    \setbeamercolor*{palette primary}{use=structure,fg=white,bg=micolor}
+    \setbeamercolor*{palette secondary}{use=structure,fg=white,bg=micolor!75!black}
+    \setbeamercolor*{palette tertiary}{use=structure,fg=white,bg=micolor!50!black}
+    \setbeamercolor*{palette sidebar primary}{use=structure,fg=micolor!10}
+    \setbeamercolor*{palette sidebar tertiary}{use=structure,fg=micolor!50}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% color de Beamer
+    \usecolortheme[named=Brown]{structure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% título, autor, etc...
+    \title[Título corto]{Título largo}
+    \subtitle{Subtítulo}
+    \author[Autor corto]
+    {%
+        Autor 1\inst{1}\\[-2mm]
+        \texttt{\tiny kk@kk.es}\\
+        \and%
+        Autor 2\inst{2}\\[-2mm]
+        \texttt{\tiny kk@kk.com}\\
+    }
+    \institute[Institución corta]
+    {%
+          \inst{1}%
+            Profesor\vspace{-2mm}
+          \and
+          \inst{2}%
+            Profesora\vspace{-2mm}
+    }
+    \date[Fecha corta]{Fecha larga}
+    \subject{Generación de presentaciones}
+
+%\pgfdeclareimage[height=0.8cm]{university-logo}{logo}
+%\logo{\pgfuseimage{university-logo}}
+
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\begin{frame}
+    \frametitle{Índice}
+
+    \tableofcontents
+\end{frame}
+
+\section{Instalación de \LaTeX}
+
+\begin{frame}
+    \frametitle{Instalación de \LaTeX}
+
+    Los pasos a seguir están en \href{http://unrinconparalatex.blogspot.com.es/}{http://unrinconparalatex.blogspot.com.es/}.
+\end{frame}
+
+\section{Empezamos con Beamer}
+
+\subsection{Tipos de bloques}
+
+\begin{frame}
+    \frametitle{Primeros pasos: bloques}
+
+    \begin{block}{Título 1}
+        Entorno \textit{block}
+    \end{block}
+
+    \begin{exampleblock}{Título 2}
+        Entorno \textit{exampleblock}
+    \end{exampleblock}
+
+    \begin{alertblock}{Título 3}
+        Entorno \textit{alertblock}
+    \end{alertblock}
+
+\end{frame}
+
+\subsection{Usando columnas}
+
+\begin{frame}
+    \frametitle{Entorno \textit{columns}}
+
+    Un ejemplo:
+
+    \begin{columns}
+        \column{.5\textwidth}
+        \framebox[\textwidth]{
+            Contenido de la 1ª columna.
+        }
+        \column{.5\textwidth}
+        \framebox[\textwidth]{
+            Contenido de la 2ª columna.
+        }
+    \end{columns}
+
+    \vspace{0.2cm}
+
+    Otro ejemplo:
+
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            Contenido de la 1ª columna.
+        \end{column}
+        \hfill
+        \begin{column}{0.5\textwidth}
+            Contenido de la 2ª columna.
+        \end{column}
+    \end{columns}
+
+    \vspace{0.2cm}
+
+    Y otro:
+
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \begin{block}{}
+                Contenido de la 1ª columna.
+            \end{block}
+        \end{column}
+        \hfill
+        \begin{column}{0.5\textwidth}
+            \begin{block}{}
+                Contenido de la 2ª columna.
+            \end{block}
+        \end{column}
+    \end{columns}
+
+    \vspace{0.2cm}
+
+    Y el último:
+
+    \begin{block}{}
+        \begin{columns}
+            \begin{column}{0.42\textwidth}
+                Contenido de la 1ª columna.
+            \end{column}
+            \hfill
+            \begin{column}{0.42\textwidth}
+                Contenido de la 2ª columna.
+            \end{column}
+        \end{columns}
+    \end{block}
+\end{frame}
+
+\section{Efectos especiales}
+
+\subsection{Pausas}
+
+\begin{frame}[fragile]
+    \frametitle{\textit{pause} y algo más}
+
+    \begin{itemize}
+        \item Uno \pause
+        \item Dos \pause
+        \item y Tres. \pause
+    \end{itemize}
+
+    \begin{itemize}[<+-| alert@+>]
+        \item Cuatro.
+        \item Cinco.
+        \item Seis.
+        \item Siete.
+    \end{itemize}
+
+    \begin{itemize}
+        \item<8-> Ocho.
+        \item<11> Once.
+        \item<9-10> Nueve, diez y no once.
+    \end{itemize}
+\end{frame}
+
+\subsection{Tapamos y destapamos}
+
+\begin{frame}
+    \frametitle{\textit{only}, \textit{onslide}, \textit{visible}}
+
+    \only<1>{
+        \begin{block}{}
+            Sólo en el primer click
+        \end{block}
+    }
+
+    \onslide<2-3>{
+        \begin{exampleblock}{}
+            En los clicks 2 y 3.
+        \end{exampleblock}
+    }
+
+    \visible<2>{
+        \begin{alertblock}{}
+            Visible en el segundo click.
+        \end{alertblock}
+    }
+    
+    \uncover<4>{
+        \begin{alertblock}{}
+            Descubierto en el cuarto click.
+        \end{alertblock}
+    }
+\end{frame}
+
+\section{Justificar texto}
+
+\begin{frame}[fragile]\justifying
+    \begin{alertblock}{¡¡¡OJO!!!}
+        Esta transparencia no tiene título!!!
+    \end{alertblock}
+
+    \vspace{0.5cm}
+
+    Para justificar el texto hay que especificar  \verb|\usepackage{ragged2e}| en el preámbulo y a continuación del \textit{frame} o caja (\textit{block}, \textit{exampleblock}, etc) escribir \verb|\justifying|:
+
+    \begin{block}{Ejemplo de texto justificado}\justifying
+        En un lugar de la Mancha, de cuyo nombre no quiero acordarme, no ha mucho tiempo que vivía un hidalgo de los de lanza en astillero, adarga antigua, rocín flaco y galgo corredor. Una olla de algo más vaca que carnero, salpicón las más noches, duelos y quebrantos los sábados, lentejas los viernes, algún palomino de añadidura los domingos, consumían las tres partes de su hacienda...
+    \end{block}
+
+\end{frame}
+
+\section{Manual de ayuda}
+
+\begin{frame}
+    \frametitle{Referencias}
+
+    Queda mucho por aprender, todo está en: % \cite{manual}.
+
+    \begin{thebibliography}{10}
+        \bibitem{manual} The BEAMER \emph{class}. \href{ftp://ftp.dante.de/tex-archive/macros/latex/contrib/beamer/doc/beameruserguide.pdf}{User Guide for version 3.33}.
+    \end{thebibliography}
+\end{frame}
+
+\end{document} 

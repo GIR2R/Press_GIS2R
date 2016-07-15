@@ -1,0 +1,274 @@
+\documentclass[10pt]{beamer}%
+\usetheme[%
+%width=2cm, %define el ancho de la barra de navegación
+%left, %barra navegacion a la izquierda
+%right %barra navegacion a la derecha
+]{Aalborg}%
+%========================================%
+%Para cambiar algunos colores en el tema %
+%pueden descomentar y compilar para ver  %
+%los cambios, ojo que lo pueden persona- %
+%lizar modificando el porcentaje de color%
+%\setbeamercolor{Aalborg}{fg=red!20,bg=red}%
+%\setbeamercolor{sidebar}{bg=red!20}%
+%\setbeamercolor{structure}{fg=red}%
+%\setbeamercolor{frametitle}{fg=blue}%
+%\setbeamercolor{normal text}{bg=gray!10}%
+%========================================%
+\graphicspath{{Images/}{Images/logo/}}%
+\usepackage{geometry}%
+\geometry{%
+  paperwidth=1.33\paperwidth,%
+  paperheight=\the\paperheight,%
+  vmargin=0cm,%
+}
+\usepackage[utf8]{inputenc}%
+\usepackage[spanish]{babel}%
+\usepackage[T1]{fontenc}%
+\usepackage{ragged2e}%
+\usepackage{helvet}%
+\newcommand{\chref}[2]{%
+  \href{#1}{{\usebeamercolor[bg]{Aalborg}#2}}%
+}%
+\AtBeginSection[]{
+	\begin{frame}
+	\vfill
+	\centering
+	\begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
+		\usebeamerfont{title}\insertsectionhead\par%	
+	\end{beamercolorbox}		
+	\end{frame}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%==========================%
+%Titulo de la presentacion %
+\title[\textbf{Titulo corto}]%
+{{{\textcolor{white} \Huge Titulo largo de la presentación}}}%
+%==========================%
+\subtitle{Charlas del Grupo GIS2R}  % could also be a conference name
+\author[Luis Robles]%nombre corto (al pie del logo)
+       {Luis Robles}%nombre largo (opcional, al inicio en el titulo)
+%=================================%
+%En el caso de ser varios autores %
+%  \author[Luis Robles] % optional, use only with lots of authors
+% {
+% Luis Alberto Robles
+% }
+%=================================%
+%==========================================================================%
+%Ingresa solo el nombre de la institucion a la que pertenece (affiliation) %
+% \institute[LabTel \\ FCF - UNMSM]{
+% Laboratorio de Teledetección - LabTel \\
+% Universidad Nacional Mayor de San Marcos}
+%==========================================================================%
+%=========================================================================%
+%Ingresar nombre y logo de la institucion a la que pertenece (affiliation)%
+\institute[
+{\includegraphics[scale=0.05]{Images/logo/unmsm}}\\ %logo insti
+LabTel \\ %laboratorio
+FCF - UNMSM %facultad y universidad
+]%
+{%
+Laboratorio de Teledetección - LabTel\\
+Facultad de Ciencias Físicas - UNMSM%
+}%
+%=========================================================================%
+%======%
+%Fecha %
+\date{\today}
+%======%
+%=================================%
+%Logo de caratula inicio de press %
+\pgfdeclareimage[height=2.5cm]{titlepagelogo}{Images/logo/gis2r}
+\titlegraphic{%
+  \pgfuseimage{titlepagelogo}
+}
+%=================================%
+%=================================%
+%Logo de esquina superior derecha %
+\pgfdeclareimage[height=1.6cm]{mainlogo}{Images/logo/gis2r}
+\logo{\pgfuseimage{mainlogo}}
+%=================================%
+
+\begin{document}
+\justifying
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% the titlepage
+{\aauwavesbg
+\begin{frame}[plain,noframenumbering] % the plain option removes the sidebar and header from the title page
+  \titlepage
+\end{frame}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TOC
+\begin{frame}{Contenido}{}
+\begin{footnotesize}
+	\tableofcontents	
+\end{footnotesize}
+\end{frame}
+%<================<*>================>%
+%<================<*>================>%
+%en el caso que quiera separar por partes
+%\part{Introducción}
+%\begin{frame}{}
+% \partpage
+%\end{frame}
+%<================<*>================>%
+%<================<*>================>%
+\section{Introducción}
+\begin{frame}{Introducción}
+\begin{block}{Requerimientos}
+		\begin{itemize}
+			\item Instalar compilador, Recomiendo Texlive
+			\item Instalar un editor los listados funcionan enLinux y windows:
+				\begin{itemize}
+					\item Texmaker \url{http://www.xm1math.net/texmaker/}
+					\item Texworks \url{https://www.tug.org/texworks/}
+					\item Kile \url{http://kile.sourceforge.net/}
+					\item Sublime \url{https://www.sublimetext.com/}
+				\end{itemize}
+			\item Solo por cuestiones de gustos no uso Miktex (\url{http://miktex.org/}), pero se que en el entorno windows es muy usado 
+			\item Trabajen con el que se sientan más cómodos, en lo personal uso Sublime, pero para iniciar los tres primeros son perfectos.
+		\end{itemize}
+\end{block}
+\end{frame}
+%<================<*>================>%
+%<================<*>================>%
+\section{Usando \LaTeX} % (fold)
+\begin{frame}{Ingresando texto mediante minipages}
+	\begin{minipage}{0.48\textwidth}
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius ipsa harum, amet beatae quasi eligendi quae porro, quas commodi veritatis!
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.48\textwidth}
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti, et quam debitis enim, harum ipsam doloribus. Temporibus blanditiis doloribus recusandae porro repellendus optio, veniam eaque, voluptates quibusdam quae. Delectus, cumque.
+	\end{minipage}
+
+	\vspace{0.5cm}
+
+	Se pueden ingresar más minipages, considerando las dimensiones de cada. Si es muy grande el ultimo minipage corre a la siguiente fila
+\end{frame}
+%<================<*>================>%
+%<================<*>================>%
+\section{Imágenes} % (fold)
+\begin{frame}{Ingresando imágenes}
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[scale=0.2]{gis2r}
+		\caption{Descripción de imagen}
+		\label{fig:gis2r}
+	\end{figure}
+\end{frame}
+%<================<*>================>%
+%<================<*>================>%
+\begin{frame}{Ingresado imágenes en dos minipages}	
+	\begin{minipage}{0.49\textwidth}
+				\begin{figure}[!h]
+				\centering
+				\includegraphics[scale=0.1]{gis2r}
+				\caption{Grupo GIS2R}
+				\label{fig:gis2r}
+			\end{figure}
+	\end{minipage}
+	\begin{minipage}{0.49\textwidth}
+				\begin{figure}[!h]
+				\centering
+				\includegraphics[scale=0.1,angle=45]{gis2r}
+				\caption{Grupo GIS2R, rotado}
+				\label{fig:gis2r}
+			\end{figure}
+	\end{minipage}
+\end{frame}
+%<================<*>================>%
+%<================<*>================>%
+\begin{frame}{Ingresado imágenes en dos minipages}	
+	\begin{minipage}{0.49\textwidth}
+				\begin{figure}[!h]
+				\centering
+				\includegraphics[scale=0.1]{gis2r}
+				\caption{Grupo GIS2R}
+				\label{fig:gis2r}
+			\end{figure}
+	\end{minipage}
+	\begin{minipage}{0.49\textwidth}
+				\begin{figure}[!h]
+				\centering
+				\includegraphics[scale=0.1,angle=180]{gis2r}
+				\caption{Grupo GIS2R, rotado}
+				\label{fig:gis2r}
+			\end{figure}
+	\end{minipage}
+
+	\begin{minipage}{0.49\textwidth}
+				\begin{figure}[!h]
+				\centering
+				\includegraphics[scale=0.1,angle=180]{gis2r}
+				\caption{Grupo GIS2R}
+				\label{fig:gis2r}
+			\end{figure}
+	\end{minipage}
+	\begin{minipage}{0.49\textwidth}
+				\begin{figure}[!h]
+				\centering
+				\includegraphics[scale=0.1]{gis2r}
+				\caption{Grupo GIS2R, rotado}
+				\label{fig:gis2r}
+			\end{figure}
+	\end{minipage}
+\end{frame}
+%<================<*>================>%
+%<================<*>================>%
+\section{Block} % (fold)
+\begin{frame}{Usando block}
+	\begin{block}{Titulo del block 1}
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima, possimus minus recusandae atque fugit esse.
+	\end{block}
+	\begin{block}{Titulo del block 2}
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima, possimus minus recusandae atque fugit esse.
+	\end{block}
+\end{frame}
+%<================<*>================>%
+%<================<*>================>%
+\begin{frame}{Usando block dentro del minipage}
+	\begin{minipage}{0.49\textwidth}
+	\begin{block}{Titulo del block 1}
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima, possimus minus recusandae atque fugit esse.
+	\end{block}
+	\end{minipage}
+	\hfil
+	\begin{minipage}{0.49\textwidth}
+	\begin{block}{Titulo del block 2}
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima, possimus minus recusandae atque fugit esse.
+	\end{block}
+	\end{minipage}
+\end{frame}
+%<================<*>================>%
+%<================<*>================>%
+\begin{frame}{Color en titulo de block}
+\begin{block}{Observation 1}
+Simmons Hall is composed of metal and concrete.
+\end{block}
+\begin{exampleblock}{Observation 2}
+Simmons Dormitory is composed of brick.
+\end{exampleblock}
+\begin{alertblock}{Conclusion}
+Simmons Hall $\not=$ Simmons Dormitory.
+\end{alertblock}
+\end{frame}
+%<================<*>================>%
+%<================<*>================>%
+\section{Código}
+\begin{frame}{Ingresando código}
+	\begin{center}
+		{\Huge Falta :D}
+	\end{center}
+\end{frame}
+%<================<*>================>%
+%<================<*>================>%
+{\aauwavesbg%
+\begin{frame}[plain,noframenumbering]%
+  \finalpage{Gracias por su atención\\
+  ¿preguntas?}
+\end{frame}}
+\end{document}
